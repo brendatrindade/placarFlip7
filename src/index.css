@@ -1,0 +1,475 @@
+/* ================= RESET ================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto Slab", serif;
+  background: #08152f;
+  color: #f2f4ff;
+}
+
+.app-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================= CONTAINER ================= */
+
+.container {
+  flex: 1;
+  max-width: 600px;
+  margin: auto;
+}
+
+img {
+  animation: rotateSlow 10s linear infinite;
+
+  width: 200px;
+  display: block;
+  margin: 50px auto;
+  opacity: 0.5;
+}
+
+@keyframes rotateSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ================= TÍTULO ================= */
+
+h1 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 30px 0;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+h2, h3 {
+  text-align: center;
+}
+
+.subtitle {
+  margin-top: -16px;
+  text-align: center;
+  font-size: 10px;
+  color: white;
+  opacity: 0.7;
+  font-weight: 200;
+}
+
+/* ================= INPUTS ================= */
+
+input {
+  width: 100%;
+  height: 36px;
+  padding: 8px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  background: #111f45;
+  color: white;
+  margin-top: 48px;
+}
+
+/* ================= BOTÕES ================= */
+
+button {
+  width: 100%;
+  height: 36px;
+  padding: 8px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+  background: #111f45;
+  color: white;
+  margin-top: 12px;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+/* ================= PLAYERS BOARD ================= */
+
+.players-board {
+  display: grid;
+  gap: 16px;
+  margin-top: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+/* ================= PLAYER CARD ================= */
+
+.player-card {
+  background: #111f45;
+  padding: 16px;
+  border-radius: 10px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  transition: 0.2s ease;
+}
+
+.player-card:hover {
+  transform: translateY(-3px);
+}
+
+.player-name {
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 0.8;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.player-score {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.player-remaining {
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+/* ================= DESTAQUES ================= */
+
+.starting-player {
+  border: 2px solid rgb(0, 157, 255);
+}
+
+.next-player::after {
+  content: "Próximo";
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 11px;
+  color: #525e77;
+  padding: 4px 8px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.over-200 {
+  background: linear-gradient(135deg, #debf0d, #c47b0e);
+  color: #08152f;
+  opacity: 0.3;
+}
+
+.winner-card {
+  animation: winnerPulse 1s infinite alternate;
+    background: linear-gradient(45deg, gold, orange);
+  color: #08152f;
+  opacity: 1;
+}
+
+@keyframes winnerPulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.08); }
+}
+/* ================= ROUND INPUTS ================= */
+
+.round-inputs {
+  display: grid;
+  gap: 16px;
+  margin-top: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  border: none;
+}
+
+.round-input-card {
+  background: #0f1c3f;
+  padding: 14px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: none;
+}
+
+/* ================= TABELA ================= */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+th,
+td {
+  padding: 12px 8px;
+  text-align: center;
+  font-size: 13px;
+}
+
+th {
+  background: #111f45;
+  font-weight: 600;
+}
+
+td {
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ================= MENSAGEM VENCEDOR ================= */
+
+.winner-message {
+  margin: 20px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffd700;
+  text-align: center;
+}
+
+/* ================= RESPONSIVIDADE ================= */
+
+@media (max-width: 600px) {
+  body {
+    padding: 12px;
+  }
+
+  h1 {
+    font-size: 20px;
+    margin-bottom: 18px;
+  }
+
+  .players-board {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .round-inputs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .player-card {
+    height: 110px;
+    padding: 14px;
+  }
+
+  .player-score {
+    font-size: 26px;
+  }
+
+  table {
+    font-size: 12px;
+  }
+
+}
+
+/* ================= HISTORICO ================= */
+
+.history {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.round-card {
+  background: #111f45;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+.round-card input{
+  width: 100px;
+  border: none;
+}
+
+.round-header {
+  font-weight: 600;
+  margin-bottom: 12px;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.round-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 14px;
+}
+
+.round-player {
+  max-width: 65%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0.8;
+}
+
+.round-score {
+  font-weight: 600;
+}
+
+.round-actions {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+}
+
+.round-actions button {
+  flex: 1;
+}
+
+/* ================= ICON BUTTONS ================= */
+
+.icon-btn {
+  width: 100%;
+  height: 36px;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: #1a2a5a;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.icon-btn:hover {
+  background: #243a7a;
+}
+
+.icon-btn:active {
+  transform: scale(0.92);
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+}
+
+.icon-btn.danger {
+  background: #3a1f2f;
+  color: #ff6b81;
+}
+
+.icon-btn.danger:hover {
+  background: #4a2439;
+}
+
+.icon-btn.success {
+  background: #183d2f;
+  color: #2ed573;
+}
+
+.icon-btn.success:hover {
+  background: #1f4f3c;
+}
+
+/* ================= BOTÕES PRINCIPAIS ================= */
+
+.btn-primary,
+.btn-danger {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: none;
+
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+  margin-top: 36px;
+}
+
+/* ===== BOTÃO PRINCIPAL ===== */
+
+.btn-primary {
+  color: white;
+  background: #1a2a5a;
+}
+
+.btn-primary:hover {
+  background: #243a7a;
+}
+
+.btn-primary:active {
+  transform: scale(0.97);
+}
+
+/* ===== BOTÃO PERIGO ===== */
+
+.btn-danger {
+  background: #1a2a5a;
+  color: #ff6b81;
+}
+
+.btn-danger:hover {
+  background: #243a7a;
+}
+
+.btn-danger:active {
+  transform: scale(0.97);
+}
+
+/* ===== ÍCONE INTERNO ===== */
+
+.btn-icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* ================= FOOTER ================= */
+
+.app-footer {
+  text-align: center;
+  font-size: 11px;
+  padding: 20px 0;
+  color: rgba(255, 255, 255, 0.25);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.footer-link {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none; 
+  margin: 0 0 0 4px;
+}
+
+.error-message {
+  background: rgba(255, 71, 87, 0.1);
+  color: #ff6b81;
+  text-align: center;
+
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 10px;
+  opacity: 0.5;
+
+  animation: fadeOut 5s ease forwards;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 0; transform: translateY(-4px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}

@@ -2,6 +2,8 @@ import { useState } from "react";
 import Game from "../components/Game";
 import type { Player } from "../types";
 import Setup from "../components/Setup";
+import flip7card from "/flip7card.png";
+
 
 export default function App() {
   const [players, setPlayers] = useState<Player[]>([]);
@@ -41,7 +43,7 @@ export default function App() {
               setPlayers={setPlayers}
               startGame={startGame}
             />
-            <img src="flip7card.png" alt="Flip7 Card" />
+            <img src={flip7card} alt="Flip7 Card" />
           </>
         ) : (
           <Game

@@ -1,6 +1,6 @@
 {
-  "name": "ScoreFlip7",
-  "short_name": "ScoreFlip7",
+  "name": "placarFlip7",
+  "short_name": "placarFlip7",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",

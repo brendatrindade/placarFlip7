@@ -41,7 +41,7 @@ export default function App() {
               setPlayers={setPlayers}
               startGame={startGame}
             />
-            <img src="/flip7card.png" alt="Flip7 Card" />
+            <img src="flip7card.png" alt="Flip7 Card" />
           </>
         ) : (
           <Game

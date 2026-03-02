@@ -40,6 +40,7 @@ export default function Setup({ players, setPlayers, startGame }: Props) {
   return (
     <>
       <input
+        className="register-input"
         type="text"
         placeholder="Cadastrar jogador: "
         value={name}
@@ -55,11 +56,12 @@ export default function Setup({ players, setPlayers, startGame }: Props) {
       <table className="table-players">
           {players.map((p, i) => (
             <tr key={i}>
-              <td>{p.name}</td>
+              <td className="td-name">{p.name}</td>
               <td>
                 {editingIndex === i ? (
                   <>
                     <input
+                      className="edit-input"
                       type="text"
                       value={editingName}
                       onChange={(e) => setEditingName(e.target.value)}

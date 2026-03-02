@@ -30,13 +30,13 @@ export default function App() {
     <div className="app-wrapper">
       <div className="container">
         <h1>Placar Flip7</h1>
-        <p className="subtitle">
-          Gerencie suas partidas e pontuações de forma fácil e rápida. <br />
-          Que vença o melhor (ou não) !
-        </p>
-
         {!started ? (
           <>
+            <p className="subtitle">
+              Gerencie suas partidas e pontuações de forma fácil e rápida. <br />
+              Que vença o melhor (ou não) !
+            </p>
+
             {error && <div className="error-message">{error}</div>}
             <Setup
               players={players}

@@ -65,7 +65,7 @@ export default function Game({ players, setPlayers, resetGame }: Props) {
       : null
 
   return (
-    <div>
+    <>
       {winner && (
         <div className="winner-message">
           {winner.name} venceu com {winner.score} pontos
@@ -91,20 +91,19 @@ export default function Game({ players, setPlayers, resetGame }: Props) {
       <div className="round-inputs">
         {players.map((p, i) => (
             <div key={i} className="round-input-card">
-            <label>{p.name}</label>
-            <input
-                type="number"
-                value={roundInputs[i]}
-                placeholder={`Pontos de ${p.name}`}
-                onChange={(e) => {
-                const newInputs = [...roundInputs]
-                newInputs[i] = parseInt(e.target.value) || 0
-                setRoundInputs(newInputs)
-                }}
-            />
+              <label>{p.name} somou:</label>
+              <input
+                  type="number"
+                  value={roundInputs[i]}
+                  onChange={(e) => {
+                  const newInputs = [...roundInputs]
+                  newInputs[i] = parseInt(e.target.value) || 0
+                  setRoundInputs(newInputs)
+                  }}
+              />
             </div>
         ))}
-        </div>
+      </div>
       <button
         className="icon-btn success"
         onClick={addRound}
@@ -126,6 +125,6 @@ export default function Game({ players, setPlayers, resetGame }: Props) {
         <ArrowPathIcon className="btn-icon" />
         Reiniciar Jogo
       </button>
-    </div>
+    </>
   )
 }

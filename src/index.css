@@ -4,6 +4,7 @@
 }
 
 body {
+  padding: 12px;
   margin: 0;
   font-family: "Roboto Slab", serif;
   background: #08152f;
@@ -20,7 +21,7 @@ body {
 
 .container {
   flex: 1;
-  max-width: 600px;
+  max-width: 500px;
   margin: auto;
 }
 
@@ -34,8 +35,12 @@ img {
 }
 
 @keyframes rotateSlow {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* ================= TÍTULO ================= */
@@ -48,7 +53,8 @@ h1 {
   text-align: center;
 }
 
-h2, h3 {
+h2,
+h3 {
   text-align: center;
 }
 
@@ -72,7 +78,14 @@ input {
   font-size: 16px;
   background: #111f45;
   color: white;
+}
+
+.register-input {
   margin-top: 48px;
+}
+
+.edit-input {
+  margin-top: 12px;
 }
 
 /* ================= BOTÕES ================= */
@@ -105,22 +118,22 @@ button:active {
   display: grid;
   gap: 16px;
   margin-top: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
 }
 
 /* ================= PLAYER CARD ================= */
 
 .player-card {
   background: #111f45;
-  padding: 16px;
   border-radius: 10px;
-  height: 120px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   position: relative;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
   transition: 0.2s ease;
+  height: 110px;
+  padding: 14px;
 }
 
 .player-card:hover {
@@ -138,7 +151,7 @@ button:active {
 }
 
 .player-score {
-  font-size: 32px;
+  font-size: 26px;
   font-weight: 700;
 }
 
@@ -173,14 +186,18 @@ button:active {
 
 .winner-card {
   animation: winnerPulse 1s infinite alternate;
-    background: linear-gradient(45deg, gold, orange);
+  background: linear-gradient(45deg, gold, orange);
   color: #08152f;
   opacity: 1;
 }
 
 @keyframes winnerPulse {
-    from { transform: scale(1); }
-    to { transform: scale(1.08); }
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
 }
 /* ================= ROUND INPUTS ================= */
 
@@ -188,7 +205,7 @@ button:active {
   display: grid;
   gap: 16px;
   margin-top: 24px;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   border: none;
 }
 
@@ -208,13 +225,14 @@ table {
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
+  font-size: 12px;
 }
 
 th,
 td {
   padding: 12px 8px;
   text-align: center;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 th {
@@ -223,7 +241,14 @@ th {
 }
 
 td {
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.td-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 60%;
 }
 
 /* ================= MENSAGEM VENCEDOR ================= */
@@ -234,41 +259,6 @@ td {
   font-weight: 600;
   color: #ffd700;
   text-align: center;
-}
-
-/* ================= RESPONSIVIDADE ================= */
-
-@media (max-width: 600px) {
-  body {
-    padding: 12px;
-  }
-
-  h1 {
-    font-size: 20px;
-    margin-bottom: 18px;
-  }
-
-  .players-board {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .round-inputs {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .player-card {
-    height: 110px;
-    padding: 14px;
-  }
-
-  .player-score {
-    font-size: 26px;
-  }
-
-  table {
-    font-size: 12px;
-  }
-
 }
 
 /* ================= HISTORICO ================= */
@@ -284,10 +274,10 @@ td {
   background: #111f45;
   border-radius: 10px;
   padding: 16px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
 
-.round-card input{
+.round-card input {
   width: 100px;
   border: none;
 }
@@ -443,6 +433,7 @@ td {
   padding: 20px 0;
   color: rgba(255, 255, 255, 0.25);
   border-top: 1px solid rgba(255, 255, 255, 0.06);
+  margin-top: 32px;
 }
 
 .footer-link {
@@ -450,7 +441,7 @@ td {
   font-weight: 500;
   display: inline-flex;
   align-items: center;
-  text-decoration: none; 
+  text-decoration: none;
   margin: 0 0 0 4px;
 }
 
@@ -468,8 +459,18 @@ td {
 }
 
 @keyframes fadeOut {
-  0% { opacity: 0; transform: translateY(-4px); }
-  10% { opacity: 1; transform: translateY(0); }
-  90% { opacity: 1; }
-  100% { opacity: 0; }
+  0% {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
